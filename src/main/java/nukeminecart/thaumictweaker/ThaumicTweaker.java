@@ -1,20 +1,20 @@
 package nukeminecart.thaumictweaker;
 
 
-import nukeminecart.thaumictweaker.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import nukeminecart.thaumictweaker.proxy.ISidedProxy;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = ThaumicTweaker.MODID, useMetadata = true, dependencies = "after:thaumcraft;after:thaumicaugmentation;after:thaumadditions;")
 public class ThaumicTweaker
 {
 
-    @SidedProxy()
-    public static CommonProxy proxy;
+    @SidedProxy(serverSide = "nukeminecart.thaumictweaker.proxy.ServerProxy",clientSide = "nukeminecart.thaumictweaker.proxy.ClientProxy")
+    public static ISidedProxy proxy;
     public static final String MODID = "thaumictweaker";
 
     public static Logger logger;
