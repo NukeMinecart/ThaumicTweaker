@@ -1,4 +1,4 @@
-package com.nukeminecart.thaumictweaker;
+package nukeminecart.thaumictweaker;
 
 import net.minecraft.item.Item;
 

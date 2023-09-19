@@ -1,4 +1,4 @@
-package com.nukeminecart.thaumictweaker.recipes;
+package nukeminecart.thaumictweaker.recipes;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;

@@ -1,6 +1,6 @@
-package com.nukeminecart.thaumictweaker.items;
+package nukeminecart.thaumictweaker.items;
 
-import com.nukeminecart.thaumictweaker.ItemsTT;
+import nukeminecart.thaumictweaker.ItemsTT;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 

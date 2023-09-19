@@ -1,4 +1,4 @@
-package com.nukeminecart.thaumictweaker.items;
+package nukeminecart.thaumictweaker.items;
 
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

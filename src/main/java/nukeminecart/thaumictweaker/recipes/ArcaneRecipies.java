@@ -1,6 +1,6 @@
-package com.nukeminecart.thaumictweaker.recipes;
+package nukeminecart.thaumictweaker.recipes;
 
-import com.nukeminecart.thaumictweaker.ItemsTT;
+import nukeminecart.thaumictweaker.ItemsTT;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;

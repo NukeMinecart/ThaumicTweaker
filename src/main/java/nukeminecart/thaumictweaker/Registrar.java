@@ -1,7 +1,7 @@
-package com.nukeminecart.thaumictweaker;
+package nukeminecart.thaumictweaker;
 
-import com.nukeminecart.thaumictweaker.items.ConfigItems;
-import com.nukeminecart.thaumictweaker.recipes.*;
+import nukeminecart.thaumictweaker.items.ConfigItems;
+import nukeminecart.thaumictweaker.recipes.*;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;

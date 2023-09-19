@@ -1,9 +1,9 @@
-package com.nukeminecart.thaumictweaker.recipes;
+package nukeminecart.thaumictweaker.recipes;
 
-import com.nukeminecart.thaumictweaker.ItemsTT;
-import com.nukeminecart.thaumictweaker.recipes.voidarmor.VoidRobeChest;
-import com.nukeminecart.thaumictweaker.recipes.voidarmor.VoidRobeHelm;
-import com.nukeminecart.thaumictweaker.recipes.voidarmor.VoidRobeLegs;
+import nukeminecart.thaumictweaker.ItemsTT;
+import nukeminecart.thaumictweaker.recipes.voidarmor.VoidRobeChest;
+import nukeminecart.thaumictweaker.recipes.voidarmor.VoidRobeHelm;
+import nukeminecart.thaumictweaker.recipes.voidarmor.VoidRobeLegs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;

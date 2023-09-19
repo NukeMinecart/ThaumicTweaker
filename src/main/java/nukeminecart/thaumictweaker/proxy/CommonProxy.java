@@ -1,6 +1,6 @@
-package com.nukeminecart.thaumictweaker.proxy;
+package nukeminecart.thaumictweaker.proxy;
 
-import com.nukeminecart.thaumictweaker.Config;
+import nukeminecart.thaumictweaker.Config;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

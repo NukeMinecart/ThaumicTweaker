@@ -1,9 +1,4 @@
-package com.nukeminecart.thaumictweaker.recipes;
-
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
+package nukeminecart.thaumictweaker.recipes;
 
 import baubles.api.IBauble;
 import net.minecraft.entity.player.EntityPlayer;

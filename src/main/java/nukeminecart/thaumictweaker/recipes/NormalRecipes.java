@@ -1,6 +1,6 @@
-package com.nukeminecart.thaumictweaker.recipes;
+package nukeminecart.thaumictweaker.recipes;
 
-import com.nukeminecart.thaumictweaker.ItemsTT;
+import nukeminecart.thaumictweaker.ItemsTT;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;

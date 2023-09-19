@@ -1,7 +1,7 @@
-package com.nukeminecart.thaumictweaker;
+package nukeminecart.thaumictweaker;
 
 
-import com.nukeminecart.thaumictweaker.proxy.CommonProxy;
+import nukeminecart.thaumictweaker.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

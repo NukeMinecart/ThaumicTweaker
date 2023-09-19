@@ -1,4 +1,4 @@
-package com.nukeminecart.thaumictweaker;
+package nukeminecart.thaumictweaker;
 
 import net.minecraftforge.common.config.Configuration;
 import org.apache.logging.log4j.Level;
@@ -12,12 +12,12 @@ public class Config {
     // Call this from CommonProxy.preInit(). It will create our config if it doesn't
     // exist yet and read the values if it does exist.
     public static void readConfig() {
-        Configuration cfg = com.nukeminecart.thaumictweaker.proxy.CommonProxy.config;
+        Configuration cfg = nukeminecart.thaumictweaker.proxy.CommonProxy.config;
         try {
             cfg.load();
             initGeneralConfig(cfg);
         } catch (Exception e1) {
-            ThaumicTweaker.logger.log(Level.ERROR, "Problem loading config file!", e1);
+            nukeminecart.thaumictweaker.ThaumicTweaker.logger.log(Level.ERROR, "Problem loading config file!", e1);
         } finally {
             if (cfg.hasChanged()) {
                 cfg.save();
