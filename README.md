@@ -1,5 +1,5 @@
-# ThaumicTweaker
-![ThaumicTweaker](banner.png)
+# Thaumic Tweaker
+![thaumic tweaker logo](logo.png)
 ======
 A Thaumcraft mod that aims to change the progression of Thaumcraft-related mods and improve the overall feel of playing.
 
