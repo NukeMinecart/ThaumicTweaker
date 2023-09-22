@@ -20,8 +20,7 @@ public class ArcaneRecipies {
     static ResourceLocation defaultGroup = new ResourceLocation("");
 
     public static void initializeArcaneRecipes() {
-        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation("thaumcraft:mechanism_simple"), new ShapedArcaneRecipe(defaultGroup, "BASEARTIFICE", 10, (new AspectList()).add(Aspect.FIRE, 2).add(Aspect.WATER, 1), ItemsTC.mechanismSimple, " B ", "ISI", " B ", 'B', "plateBrass", 'I', "plateIron", 'S', ItemsTT.greatwoodStick));
-        //RecipeApi.addShapedArcaneRecipe(new ResourceLocation("thaumcraft:mechanism_simple"),-1,new AspectList()," B ", "ISI", " B ", 'B', "plateBrass", 'I', "plateIron", 'S', ItemsTT.greatwoodStick);
+        RecipeApi.addShapedArcaneRecipe(new ResourceLocation("thaumcraft:mechanism_simple"),new AspectList().add(Aspect.FIRE, 2).add(Aspect.WATER, 1)," B ", "ISI", " B ", 'B', "plateBrass", 'I', "plateIron", 'S', ItemsTT.greatwoodStick);
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation("thaumcraft:mechanism_complex"), new ShapedArcaneRecipe(defaultGroup, "BASEARTIFICE", 50, (new AspectList()).add(Aspect.FIRE, 5).add(Aspect.WATER, 2), ItemsTC.mechanismComplex, " S ", "TMT", " Q ", 'T', "plateThaumium", 'Q', Blocks.PISTON, 'M', new ItemStack(ItemsTC.mechanismSimple),'S', BlocksTC.plankGreatwood));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation("thaumcraft:vis_resonator"), new ShapelessArcaneRecipe(defaultGroup, "UNLOCKAUROMANCY@2", 50, (new AspectList()).add(Aspect.AIR, 1).add(Aspect.WATER, 1), ItemsTC.visResonator, "plateIron", "gemQuartz", "gemQuartz"));
         ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation("thaumcraft:sanitychecker"), new ShapedArcaneRecipe(defaultGroup, "WARP", 20, (new AspectList()).add(Aspect.ORDER, 2).add(Aspect.ENTROPY, 1), ItemsTC.sanityChecker, "NN ", "MBN", "NN ", 'N', "nuggetBrass", 'B', new ItemStack(ItemsTC.brain), 'M', new ItemStack(ItemsTC.mirroredGlass)));
