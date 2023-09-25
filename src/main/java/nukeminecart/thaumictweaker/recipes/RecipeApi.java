@@ -5,12 +5,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.AspectList;
-import thaumcraft.api.crafting.IArcaneRecipe;
-import thaumcraft.api.crafting.ShapedArcaneRecipe;
+import thaumcraft.api.crafting.*;
 
 public class RecipeApi {
     static ResourceLocation defaultGroup = new ResourceLocation("");
-    public static void addShapedArcaneRecipe(ResourceLocation location, int vis, AspectList crystals, Object... recipe){
+    public static void changeShapedArcaneRecipe(ResourceLocation location, int vis, AspectList crystals, Object[] recipe){
         ShapedArcaneRecipe arcaneRecipe;
         IRecipe testRecipe = GameRegistry.findRegistry(IRecipe.class).getValue(location);
             if(testRecipe instanceof IArcaneRecipe) {
@@ -24,7 +23,7 @@ public class RecipeApi {
                 crystals,
                 arcaneRecipe.delegate.get().getRecipeOutput(), recipe));
     }
-    public static void addShapedArcaneRecipe(ResourceLocation location, AspectList crystals, Object... recipe){
+    public static void changeShapedArcaneRecipe(ResourceLocation location, AspectList crystals, Object[] recipe){
         ShapedArcaneRecipe arcaneRecipe;
         IRecipe testRecipe = GameRegistry.findRegistry(IRecipe.class).getValue(location);
         if(testRecipe instanceof IArcaneRecipe) {
@@ -38,7 +37,7 @@ public class RecipeApi {
                 crystals,
                 arcaneRecipe.delegate.get().getRecipeOutput(), recipe));
     }
-    public static void addShapedArcaneRecipe(ResourceLocation location, Object... recipe){
+    public static void changeShapedArcaneRecipe(ResourceLocation location, Object[] recipe){
         ShapedArcaneRecipe arcaneRecipe;
         IRecipe testRecipe = GameRegistry.findRegistry(IRecipe.class).getValue(location);
         if(testRecipe instanceof IArcaneRecipe) {
@@ -52,7 +51,7 @@ public class RecipeApi {
                 arcaneRecipe.getCrystals(),
                 arcaneRecipe.delegate.get().getRecipeOutput(), recipe));
     }
-    public static void addShapedArcaneRecipe(ResourceLocation location, int vis, Object... recipe){
+    public static void changeShapedArcaneRecipe(ResourceLocation location, int vis, Object[] recipe){
         ShapedArcaneRecipe arcaneRecipe;
         IRecipe testRecipe = GameRegistry.findRegistry(IRecipe.class).getValue(location);
         if(testRecipe instanceof IArcaneRecipe) {
@@ -66,4 +65,55 @@ public class RecipeApi {
                 arcaneRecipe.getCrystals(),
                 arcaneRecipe.delegate.get().getRecipeOutput(), recipe));
     }
+    public static void changeShapelessArcaneRecipe(ResourceLocation location, int vis,AspectList aspects, Object... recipe){
+        ShapelessArcaneRecipe arcaneRecipe;
+        IRecipe testRecipe = GameRegistry.findRegistry(IRecipe.class).getValue(location);
+        if(testRecipe instanceof IArcaneRecipe) {
+            arcaneRecipe = (ShapelessArcaneRecipe) testRecipe;
+        }else{
+            throw new IllegalArgumentException("Invalid Location");
+        }
+        ThaumcraftApi.addArcaneCraftingRecipe(location,new ShapelessArcaneRecipe(defaultGroup,
+                arcaneRecipe.getResearch(),
+                vis,
+                aspects,
+                arcaneRecipe.delegate.get().getRecipeOutput(), recipe));
+    }
+
+    public static void changeInfusionRecipe(ResourceLocation location, AspectList aspects, Object... recipe){
+        InfusionRecipe infusionRecipe;
+        IThaumcraftRecipe testRecipe = ThaumcraftApi.getCraftingRecipes().get(location);
+        if(testRecipe instanceof InfusionRecipe) {
+            infusionRecipe = (InfusionRecipe) testRecipe;
+        }else{
+            throw new IllegalArgumentException("Invalid Location");
+        }
+        ThaumcraftApi.addInfusionCraftingRecipe(location, new InfusionRecipe(
+                infusionRecipe.getResearch(),
+                infusionRecipe.getRecipeOutput(),
+                infusionRecipe.instability,
+                aspects,
+                infusionRecipe.getRecipeInput(),
+                recipe));
+
+    }
+
+    public static void changeInfusionRecipe(ResourceLocation location, Object... recipe){
+        InfusionRecipe infusionRecipe;
+        IThaumcraftRecipe testRecipe = ThaumcraftApi.getCraftingRecipes().get(location);
+        if(testRecipe instanceof InfusionRecipe) {
+            infusionRecipe = (InfusionRecipe) testRecipe;
+        }else{
+            throw new IllegalArgumentException("Invalid Location");
+        }
+        ThaumcraftApi.addInfusionCraftingRecipe(location, new InfusionRecipe(
+                infusionRecipe.getResearch(),
+                infusionRecipe.getRecipeOutput(),
+                infusionRecipe.instability,
+                infusionRecipe.getAspects(),
+                infusionRecipe.getRecipeInput(),
+                recipe));
+
+    }
+
 }
