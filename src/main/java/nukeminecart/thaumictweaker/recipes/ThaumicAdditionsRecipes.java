@@ -45,8 +45,8 @@ public class ThaumicAdditionsRecipes
     public static void init()
     {
         infusion();
-        arcaneCrafting();
-        crucible();
+        //arcaneCrafting();
+        //crucible();
 
     }
 

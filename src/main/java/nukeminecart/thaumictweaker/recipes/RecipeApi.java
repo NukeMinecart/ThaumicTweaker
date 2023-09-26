@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.*;
+import thecodex6824.thaumicaugmentation.common.recipe.InfusionRecipeComplexResearch;
 
 public class RecipeApi {
     static ResourceLocation defaultGroup = new ResourceLocation("");
@@ -80,7 +81,7 @@ public class RecipeApi {
                 arcaneRecipe.delegate.get().getRecipeOutput(), recipe));
     }
 
-    public static void changeInfusionRecipe(ResourceLocation location, AspectList aspects, Object... recipe){
+    public static void changeInfusionRecipe(ResourceLocation location, AspectList aspects, Object[] recipe){
         InfusionRecipe infusionRecipe;
         IThaumcraftRecipe testRecipe = ThaumcraftApi.getCraftingRecipes().get(location);
         if(testRecipe instanceof InfusionRecipe) {
@@ -98,7 +99,7 @@ public class RecipeApi {
 
     }
 
-    public static void changeInfusionRecipe(ResourceLocation location, Object... recipe){
+    public static void changeInfusionRecipe(ResourceLocation location, Object[] recipe){
         InfusionRecipe infusionRecipe;
         IThaumcraftRecipe testRecipe = ThaumcraftApi.getCraftingRecipes().get(location);
         if(testRecipe instanceof InfusionRecipe) {
@@ -114,6 +115,56 @@ public class RecipeApi {
                 infusionRecipe.getRecipeInput(),
                 recipe));
 
+    }
+
+    public static void changeComplexInfusionRecipe(ResourceLocation location, AspectList aspects,Object[] recipe){
+        InfusionRecipe infusionRecipe;
+        IThaumcraftRecipe testRecipe = ThaumcraftApi.getCraftingRecipes().get(location);
+        if(testRecipe instanceof InfusionRecipe) {
+            infusionRecipe = (InfusionRecipe) testRecipe;
+        }else{
+            throw new IllegalArgumentException("Invalid Location");
+        }
+        ThaumcraftApi.addInfusionCraftingRecipe(location, new InfusionRecipeComplexResearch(
+                infusionRecipe.getResearch(),
+                infusionRecipe.getRecipeOutput(),
+                infusionRecipe.instability,
+                aspects,
+                infusionRecipe.getRecipeInput(),
+                recipe));
+
+    }
+    public static void changeComplexInfusionRecipe(ResourceLocation location,Object[] recipe){
+        InfusionRecipe infusionRecipe;
+        IThaumcraftRecipe testRecipe = ThaumcraftApi.getCraftingRecipes().get(location);
+        if(testRecipe instanceof InfusionRecipe) {
+            infusionRecipe = (InfusionRecipe) testRecipe;
+        }else{
+            throw new IllegalArgumentException("Invalid Location");
+        }
+        ThaumcraftApi.addInfusionCraftingRecipe(location, new InfusionRecipeComplexResearch(
+                infusionRecipe.getResearch(),
+                infusionRecipe.getRecipeOutput(),
+                infusionRecipe.instability,
+                infusionRecipe.getAspects(),
+                infusionRecipe.getRecipeInput(),
+                recipe));
+
+    }
+
+    public static void changeAlchemyRecipe(ResourceLocation location, AspectList aspects){
+        CrucibleRecipe alchemyRecipe;
+        IThaumcraftRecipe testRecipe = ThaumcraftApi.getCraftingRecipes().get(location);
+        if(testRecipe instanceof CrucibleRecipe) {
+            alchemyRecipe = (CrucibleRecipe) testRecipe;
+        }else{
+            throw new IllegalArgumentException("Invalid Location");
+        }
+        ThaumcraftApi.addCrucibleRecipe(location, new CrucibleRecipe(
+                alchemyRecipe.getResearch(),
+                alchemyRecipe.getRecipeOutput(),
+                alchemyRecipe.getCatalyst(),
+                aspects));
     }
 
 }
