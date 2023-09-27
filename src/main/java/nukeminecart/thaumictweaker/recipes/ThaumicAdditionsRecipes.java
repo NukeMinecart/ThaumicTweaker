@@ -10,25 +10,16 @@ import org.zeith.thaumicadditions.api.AspectUtil;
 import org.zeith.thaumicadditions.init.BlocksTAR;
 import org.zeith.thaumicadditions.init.ItemsTAR;
 import org.zeith.thaumicadditions.init.KnowledgeTAR;
-import org.zeith.thaumicadditions.items.seed.ItemVisSeeds;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.blocks.BlocksTC;
-import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.InfusionRecipe;
-import thaumcraft.api.crafting.ShapedArcaneRecipe;
 import thaumcraft.api.items.ItemsTC;
-import thecodex6824.thaumicaugmentation.api.TAItems;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ThaumicAdditionsRecipes
 
 {
-    public static final ResourceLocation visSeedsRecipeIDFake = new ResourceLocation(InfoTAR.MOD_ID, "vis_seeds_recipes_all");
-    public static final List<ResourceLocation> visSeedsRecipes = new ArrayList<>();
     static ResourceLocation defaultGroup = new ResourceLocation("");
 
 
@@ -37,17 +28,10 @@ public class ThaumicAdditionsRecipes
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(InfoTAR.MOD_ID, path), new InfusionRecipe(research, output, instability, aspects, catalyst, inputs));
     }
 
-    public static void addShapedArcaneRecipe(String path, String res, int vis, AspectList crystals, ItemStack result, Object... recipe)
-    {
-        ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation(InfoTAR.MOD_ID, path), new ShapedArcaneRecipe(defaultGroup, res, vis, crystals, result, recipe));
-    }
 
     public static void init()
     {
         infusion();
-        //arcaneCrafting();
-        //crucible();
-
     }
 
 
@@ -90,41 +74,6 @@ public class ThaumicAdditionsRecipes
 
         }
 
-    private static void arcaneCrafting()
-    {
-        addShapedArcaneRecipe("dna_sample", "TAR_MOB_SUMMONING@2", 100, AspectUtil.primals(6), new ItemStack(ItemsTAR.ENTITY_CELL), "tmt", "rpr", "tmt", 'r', ItemsTC.mechanismSimple, 't', "ingotThaumium", 'm', ItemsTC.morphicResonator, 'p', "plateThaumium");
-
-        addShapedArcaneRecipe("brass_jar", "TAR_BRASS_JAR", 7, new AspectList(), new ItemStack(BlocksTAR.BRASS_JAR), "p", "j", 'p', "plateBrass", 'j', BlocksTC.jarNormal);
-        addShapedArcaneRecipe("thaumium_jar", "TAR_THAUMIUM_JAR", 15, new AspectList().add(Aspect.WATER, 2), new ItemStack(BlocksTAR.THAUMIUM_JAR), "p", "j", 'p', new ItemStack(ItemsTC.plate, 1, 2), 'j', BlocksTAR.BRASS_JAR);
-        addShapedArcaneRecipe("eldritch_jar", "TAR_ELDRITCH_JAR", 150, new AspectList().add(Aspect.WATER, 6), new ItemStack(BlocksTAR.ELDRITCH_JAR), "p", "j", 'p', new ItemStack(ItemsTC.plate, 1, 3), 'j', BlocksTAR.THAUMIUM_JAR);
-        addShapedArcaneRecipe("mithrillium_jar", "TAR_MITHRILLIUM_JAR", 750, new AspectList().add(Aspect.WATER, 12), new ItemStack(BlocksTAR.MITHRILLIUM_JAR), "p", "j", 'p', new ItemStack(ItemsTAR.MITHRILLIUM_PLATE), 'j', BlocksTAR.ELDRITCH_JAR);
-        addShapedArcaneRecipe("adaminite_jar", "TAR_ADAMINITE_JAR@2", 1000, new AspectList().add(Aspect.WATER, 24), new ItemStack(BlocksTAR.ADAMINITE_JAR), "p", "j", 'p', new ItemStack(ItemsTAR.ADAMINITE_PLATE), 'j', BlocksTAR.MITHRILLIUM_JAR);
-
-        addShapedArcaneRecipe("adaminite_fabric", "TAR_ADAMINITE_FABRIC", 200, AspectUtil.primals(4), new ItemStack(ItemsTAR.ADAMINITE_FABRIC, 2), " f ", "faf", " f ", 'f', new ItemStack(ItemsTC.fabric), 'a', new ItemStack(ItemsTAR.ADAMINITE_INGOT));
-        addShapedArcaneRecipe("adaminite_hood", "TAR_ADAMINITE_FABRIC", 200, AspectUtil.primals(4), new ItemStack(ItemsTAR.ADAMINITE_HOOD), "fff", "fmf", 'f', new ItemStack(ItemsTAR.ADAMINITE_FABRIC), 'm', new ItemStack(ItemsTC.voidRobeHelm));
-        addShapedArcaneRecipe("adaminite_robe", "TAR_ADAMINITE_FABRIC", 200, AspectUtil.primals(4), new ItemStack(ItemsTAR.ADAMINITE_ROBE), "f f", "fmf", "fff", 'f', new ItemStack(ItemsTAR.ADAMINITE_FABRIC), 'm', new ItemStack(ItemsTC.voidRobeChest));
-        addShapedArcaneRecipe("adaminite_belt", "TAR_ADAMINITE_FABRIC", 200, AspectUtil.primals(4), new ItemStack(ItemsTAR.ADAMINITE_BELT), " f ", "fmf", 'f', new ItemStack(ItemsTAR.ADAMINITE_FABRIC), 'm', new ItemStack(ItemsTC.voidRobeLegs));
-        addShapedArcaneRecipe("adaminite_boots", "TAR_ADAMINITE_FABRIC", 200, AspectUtil.primals(4), new ItemStack(ItemsTAR.ADAMINITE_BOOTS), "f f", "fmf", 'f', new ItemStack(ItemsTAR.ADAMINITE_FABRIC), 'm', new ItemStack(TAItems.VOID_BOOTS));
-
-        addShapedArcaneRecipe("mithminite_fabric", "TAR_MITHMINITE_FABRIC", 400, AspectUtil.primals(8), new ItemStack(ItemsTAR.MITHMINITE_FABRIC, 2), " a ", "ama", " a ", 'm', new ItemStack(ItemsTAR.MITHMINITE_INGOT), 'a', new ItemStack(ItemsTAR.ADAMINITE_FABRIC));
-        addShapedArcaneRecipe("mithrillium_smelter", "TAR_MITHRILLIUM_SMELTER", 500, new AspectList().add(Aspect.FIRE, 6).add(Aspect.WATER, 2), new ItemStack(BlocksTAR.MITHRILLIUM_SMELTER), "bsb", "mcm", "mmm", 'b', "plateBrass", 's', BlocksTC.smelterVoid, 'm', ItemsTAR.MITHRILLIUM_PLATE, 'c', BlocksTC.metalAlchemicalAdvanced);
-        addShapedArcaneRecipe("adaminite_smelter", "TAR_ADAMINITE_SMELTER", 600, new AspectList().add(Aspect.FIRE, 12).add(Aspect.WATER, 6), new ItemStack(BlocksTAR.ADAMINITE_SMELTER), "bsb", "mcm", "mmm", 'b', "plateBrass", 's', BlocksTAR.MITHRILLIUM_SMELTER, 'm', ItemsTAR.ADAMINITE_PLATE, 'c', BlocksTC.metalAlchemicalAdvanced);
-        addShapedArcaneRecipe("mithminite_smelter", "TAR_MITHMINITE_SMELTER", 750, new AspectList().add(Aspect.FIRE, 24).add(Aspect.WATER, 12), new ItemStack(BlocksTAR.MITHMINITE_SMELTER), "bsb", "mcm", "mmm", 'b', "plateBrass", 's', BlocksTAR.ADAMINITE_SMELTER, 'm', ItemsTAR.MITHMINITE_PLATE, 'c', BlocksTC.metalAlchemicalAdvanced);
-
-    }
-
-    private static void crucible()
-    {
-        for(Aspect a : Aspect.aspects.values())
-        {
-            CrucibleRecipe cr = new CrucibleRecipe("TAR_VIS_SEEDS", ItemVisSeeds.create(a, 1), new ItemStack(Items.WHEAT_SEEDS), new AspectList().add(Aspect.PLANT, 40).add(a, 10));
-            ResourceLocation loc = new ResourceLocation(InfoTAR.MOD_ID, a.getTag() + "_vis_seed");
-            visSeedsRecipes.add(loc);
-            ThaumcraftApi.addCrucibleRecipe(loc, cr);
-        }
-
-        ThaumcraftApi.addFakeCraftingRecipe(visSeedsRecipeIDFake, visSeedsRecipes);
-    }
 
 
 }

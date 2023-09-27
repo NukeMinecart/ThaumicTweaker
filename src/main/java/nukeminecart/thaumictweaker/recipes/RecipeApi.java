@@ -116,6 +116,14 @@ public class RecipeApi {
                 recipe));
 
     }
+    public static void changeInfusionRecipe(ResourceLocation location, InfusionRecipe recipe){
+        ThaumcraftApi.addInfusionCraftingRecipe(location, recipe);
+
+    }
+    public static void changeFakeInfusionRecipe(ResourceLocation location, InfusionRecipe recipe){
+        ThaumcraftApi.addFakeCraftingRecipe(location, recipe);
+    }
+
 
     public static void changeComplexInfusionRecipe(ResourceLocation location, AspectList aspects,Object[] recipe){
         InfusionRecipe infusionRecipe;
