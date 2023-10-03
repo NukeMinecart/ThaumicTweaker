@@ -3,21 +3,19 @@ package nukeminecart.thaumictweaker.recipes;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import org.zeith.thaumicadditions.InfoTAR;
-import org.zeith.thaumicadditions.items.seed.ItemVisSeeds;
+import nukeminecart.thaumictweaker.recipes.api.RecipeApi;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.items.ItemsTC;
 import thaumcraft.common.config.ModConfig;
-import thecodex6824.thaumicaugmentation.api.ThaumicAugmentationAPI;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AlchemyRecipes {
-    public static final ResourceLocation visSeedsRecipeIDFake = new ResourceLocation(InfoTAR.MOD_ID, "vis_seeds_recipes_all");
+    public static final ResourceLocation visSeedsRecipeIDFake = new ResourceLocation( "thaumadditions", "vis_seeds_recipes_all");
     public static final List<ResourceLocation> visSeedsRecipes = new ArrayList<>();
     public static void initializeAlchemyRecipes() {
         //Thuamcraft
@@ -55,17 +53,19 @@ public class AlchemyRecipes {
         ThaumcraftApi.addCrucibleRecipe(new ResourceLocation("minecraft:ghast_tear"),new CrucibleRecipe("HEDGEALCHEMY",new ItemStack(Items.GHAST_TEAR),new ItemStack(ItemsTC.nuggets,1,5), (new AspectList().add(Aspect.FIRE,10).add(Aspect.BEAST,5).add(Aspect.SOUL,10))));
 
         // Thaumic Augmentation
-        RecipeApi.changeAlchemyRecipe(new ResourceLocation(ThaumicAugmentationAPI.MODID, "impetus_jewel"),new AspectList().add(Aspect.ORDER, 25).add(Aspect.ENERGY, 25));
-
-        //Thaumic Additions
-        for(Aspect a : Aspect.aspects.values())
-        {
-            CrucibleRecipe cr = new CrucibleRecipe("TAR_VIS_SEEDS", ItemVisSeeds.create(a, 1), new ItemStack(Items.WHEAT_SEEDS), new AspectList().add(Aspect.PLANT, 40).add(a, 10));
-            ResourceLocation loc = new ResourceLocation(InfoTAR.MOD_ID, a.getTag() + "_vis_seed");
-            visSeedsRecipes.add(loc);
-            ThaumcraftApi.addCrucibleRecipe(loc, cr);
+        if(nukeminecart.thaumictweaker.ModConfig.ISTHAUMICAUGMENT) {
+            RecipeApi.changeAlchemyRecipe(new ResourceLocation("thaumicaugmentation", "impetus_jewel"), new AspectList().add(Aspect.ORDER, 25).add(Aspect.ENERGY, 25));
         }
+        //Thaumic Additions
+        if(nukeminecart.thaumictweaker.ModConfig.ISTHAUMICADDITIONS) {
+            for (Aspect a : Aspect.aspects.values()) {
+                CrucibleRecipe cr = new CrucibleRecipe("TAR_VIS_SEEDS",  org.zeith.thaumicadditions.items.seed.ItemVisSeeds.create(a, 1), new ItemStack(Items.WHEAT_SEEDS), new AspectList().add(Aspect.PLANT, 40).add(a, 10));
+                ResourceLocation loc = new ResourceLocation( "thaumadditions", a.getTag() + "_vis_seed");
+                visSeedsRecipes.add(loc);
+                ThaumcraftApi.addCrucibleRecipe(loc, cr);
+            }
 
-        ThaumcraftApi.addFakeCraftingRecipe(visSeedsRecipeIDFake, visSeedsRecipes);
+            ThaumcraftApi.addFakeCraftingRecipe(visSeedsRecipeIDFake, visSeedsRecipes);
+        }
     }
 }

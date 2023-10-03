@@ -2,6 +2,7 @@ package nukeminecart.thaumictweaker.recipes.voidarmor;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import nukeminecart.thaumictweaker.ModConfig;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.InfusionRecipe;
@@ -20,7 +21,7 @@ public class VoidRobeLegs extends InfusionRecipe {
                 .add(Aspect.VOID, 60)
                 ,new ItemStack(ItemsTC.fortressLegs),
                 new ItemStack(ItemsTC.voidLegs),
-                new ItemStack(TAItems.THAUMIUM_ROBES_LEGGINGS),
+                ModConfig.ISTHAUMICAUGMENT ? new ItemStack(TAItems.THAUMIUM_ROBES_LEGGINGS):new ItemStack(ItemsTC.clothLegs),
                 "plateVoid", "plateVoid", "plateVoid",
                 new ItemStack(ItemsTC.salisMundus),
                 new ItemStack(ItemsTC.fabric));

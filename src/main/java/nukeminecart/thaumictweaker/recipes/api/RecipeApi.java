@@ -1,12 +1,12 @@
-package nukeminecart.thaumictweaker.recipes;
+package nukeminecart.thaumictweaker.recipes.api;
 
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import nukeminecart.thaumictweaker.ModConfig;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.*;
-import thecodex6824.thaumicaugmentation.common.recipe.InfusionRecipeComplexResearch;
 
 public class RecipeApi {
     static ResourceLocation defaultGroup = new ResourceLocation("");
@@ -133,13 +133,15 @@ public class RecipeApi {
         }else{
             throw new IllegalArgumentException("Invalid Location");
         }
-        ThaumcraftApi.addInfusionCraftingRecipe(location, new InfusionRecipeComplexResearch(
-                infusionRecipe.getResearch(),
-                infusionRecipe.getRecipeOutput(),
-                infusionRecipe.instability,
-                aspects,
-                infusionRecipe.getRecipeInput(),
-                recipe));
+        if(ModConfig.ISTHAUMICAUGMENT) {
+            ThaumcraftApi.addInfusionCraftingRecipe(location, new InfusionRecipeComplex(
+                    infusionRecipe.getResearch(),
+                    infusionRecipe.getRecipeOutput(),
+                    infusionRecipe.instability,
+                    aspects,
+                    infusionRecipe.getRecipeInput(),
+                    recipe));
+        }
 
     }
     public static void changeComplexInfusionRecipe(ResourceLocation location,Object[] recipe){
@@ -150,13 +152,15 @@ public class RecipeApi {
         }else{
             throw new IllegalArgumentException("Invalid Location");
         }
-        ThaumcraftApi.addInfusionCraftingRecipe(location, new InfusionRecipeComplexResearch(
-                infusionRecipe.getResearch(),
-                infusionRecipe.getRecipeOutput(),
-                infusionRecipe.instability,
-                infusionRecipe.getAspects(),
-                infusionRecipe.getRecipeInput(),
-                recipe));
+        if(ModConfig.ISTHAUMICAUGMENT) {
+            ThaumcraftApi.addInfusionCraftingRecipe(location, new InfusionRecipeComplex(
+                    infusionRecipe.getResearch(),
+                    infusionRecipe.getRecipeOutput(),
+                    infusionRecipe.instability,
+                    infusionRecipe.getAspects(),
+                    infusionRecipe.getRecipeInput(),
+                    recipe));
+        }
 
     }
 

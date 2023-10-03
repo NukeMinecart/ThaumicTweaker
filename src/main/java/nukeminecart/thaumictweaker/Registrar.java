@@ -20,10 +20,12 @@ public final class Registrar {
 
         public static void registerVanillaRecipes() {
             NormalRecipes.initializeNormalRecipes();
-            ArcaneRecipies.initializeArcaneRecipes();
+            //ArcaneRecipies.initializeArcaneRecipes();
             InfusionRecipes.initializeInfusionRecipes();
             AlchemyRecipes.initializeAlchemyRecipes();
-            ThaumicAdditionsRecipes.init();
+            if(ModConfig.ISTHAUMICADDITIONS) {
+                ThaumicAdditionsRecipes.init();
+            }
 
         }
 

@@ -1,9 +1,5 @@
 package nukeminecart.thaumictweaker.recipes;
 
-import nukeminecart.thaumictweaker.ItemsTT;
-import nukeminecart.thaumictweaker.recipes.voidarmor.VoidRobeChest;
-import nukeminecart.thaumictweaker.recipes.voidarmor.VoidRobeHelm;
-import nukeminecart.thaumictweaker.recipes.voidarmor.VoidRobeLegs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
@@ -12,6 +8,13 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.NBTTagByte;
 import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.util.ResourceLocation;
+import nukeminecart.thaumictweaker.ItemsTT;
+import nukeminecart.thaumictweaker.ModConfig;
+import nukeminecart.thaumictweaker.recipes.api.RecipeApi;
+import nukeminecart.thaumictweaker.recipes.api.RunicInfusionRecipe;
+import nukeminecart.thaumictweaker.recipes.voidarmor.VoidRobeChest;
+import nukeminecart.thaumictweaker.recipes.voidarmor.VoidRobeHelm;
+import nukeminecart.thaumictweaker.recipes.voidarmor.VoidRobeLegs;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.aspects.Aspect;
@@ -23,9 +26,6 @@ import thaumcraft.api.items.ItemsTC;
 import thaumcraft.common.config.ConfigItems;
 import thaumcraft.common.lib.crafting.InfusionEnchantmentRecipe;
 import thaumcraft.common.lib.enchantment.EnumInfusionEnchantment;
-import thecodex6824.thaumicaugmentation.api.TAItems;
-import thecodex6824.thaumicaugmentation.api.ThaumicAugmentationAPI;
-import thecodex6824.thaumicaugmentation.common.recipe.InfusionRecipeComplexResearch;
 
 public class InfusionRecipes {
     public static void initializeInfusionRecipes() {
@@ -133,36 +133,36 @@ public class InfusionRecipes {
         RecipeApi.changeInfusionRecipe(new ResourceLocation("thaumcraft:VoidseerPearl"), new InfusionRecipe("VOIDSEERPEARL", new ItemStack(ItemsTC.charmVoidseer), 8, (new AspectList()).add(Aspect.MIND, 75).add(Aspect.VOID, 75).add(Aspect.MAGIC, 50), new ItemStack(ItemsTC.baubles, 1, 4), new ItemStack(ItemsTC.brain), new ItemStack(ItemsTC.voidSeed), new ItemStack(ItemsTC.brain), Ingredient.fromItem(ItemsTC.primordialPearl)));
         RecipeApi.changeInfusionRecipe(new ResourceLocation("minecraft:totem_of_undying"),new InfusionRecipe("BASEAUROMANCY",new ItemStack(Items.TOTEM_OF_UNDYING),3,(new AspectList().add(Aspect.LIFE,100).add(Aspect.MAGIC,50).add(Aspect.PROTECT,30)),new ItemStack(Items.NETHER_STAR),new ItemStack(ItemsTC.fabric),"plateBrass",new ItemStack(ItemsTC.fabric),"plateBrass",new ItemStack(ItemsTC.fabric),"plateBrass",new ItemStack(ItemsTC.fabric),"plateBrass"));
 
+        if(ModConfig.ISTHAUMICAUGMENT) {
+            //Thaumic Augmentation
+            RecipeApi.changeComplexInfusionRecipe(new ResourceLocation("thaumicaugmentation", "thaumium_robes_hood"),
+                    new AspectList().add(Aspect.METAL, 30).add(Aspect.ENERGY, 30).add(Aspect.PROTECT, 30).add(Aspect.SENSES, 15).add(Aspect.AURA, 15),
+                    new Object[]{ItemsTC.goggles, ItemsTC.fabric, ItemsTC.fabric, ItemsTC.salisMundus, "plateThaumium", "leather"});
 
-        //Thaumic Augmentation
-        RecipeApi.changeComplexInfusionRecipe(new ResourceLocation(ThaumicAugmentationAPI.MODID, "thaumium_robes_hood"),
-                        new AspectList().add(Aspect.METAL, 30).add(Aspect.ENERGY, 30).add(Aspect.PROTECT, 30).add(Aspect.SENSES, 15).add(Aspect.AURA, 15),
-                        new Object[]{ItemsTC.goggles, ItemsTC.fabric, ItemsTC.fabric, ItemsTC.salisMundus, "plateThaumium", "leather"});
+            RecipeApi.changeComplexInfusionRecipe(new ResourceLocation("thaumicaugmentation", "thaumium_robes_chestplate"),
+                    new AspectList().add(Aspect.METAL, 30).add(Aspect.ENERGY, 30).add(Aspect.PROTECT, 35).add(Aspect.AURA, 20),
+                    new Object[]{ItemsTC.fabric, ItemsTC.fabric, ItemsTC.fabric, ItemsTC.salisMundus, "plateThaumium", "plateThaumium"});
 
-        RecipeApi.changeComplexInfusionRecipe(new ResourceLocation(ThaumicAugmentationAPI.MODID, "thaumium_robes_chestplate"),
-                        new AspectList().add(Aspect.METAL, 30).add(Aspect.ENERGY, 30).add(Aspect.PROTECT, 35).add(Aspect.AURA, 20),
-                new Object[]{ItemsTC.fabric, ItemsTC.fabric, ItemsTC.fabric, ItemsTC.salisMundus, "plateThaumium", "plateThaumium"});
+            RecipeApi.changeComplexInfusionRecipe(new ResourceLocation("thaumicaugmentation", "thaumium_robes_leggings"),
+                    new AspectList().add(Aspect.METAL, 30).add(Aspect.ENERGY, 30).add(Aspect.PROTECT, 25).add(Aspect.AURA, 10),
+                    new Object[]{ItemsTC.fabric, new ItemStack(ItemsTC.baubles, 1, 2), new ItemStack(ItemsTC.clothLegs), ItemsTC.salisMundus, "plateThaumium", "plateThaumium"});
 
-        RecipeApi.changeComplexInfusionRecipe(new ResourceLocation(ThaumicAugmentationAPI.MODID, "thaumium_robes_leggings"),
-                        new AspectList().add(Aspect.METAL, 30).add(Aspect.ENERGY, 30).add(Aspect.PROTECT, 25).add(Aspect.AURA, 10),
-                new Object[]{ItemsTC.fabric, new ItemStack(ItemsTC.baubles, 1, 2),new ItemStack(ItemsTC.clothLegs), ItemsTC.salisMundus, "plateThaumium", "plateThaumium"});
+            RecipeApi.changeComplexInfusionRecipe(new ResourceLocation("thaumicaugmentation", "gauntlet_void"),
+                    new AspectList().add(Aspect.ENERGY, 100).add(Aspect.ELDRITCH, 150).add(Aspect.VOID, 150),
+                    new Object[]{ItemsTC.fabric, "plateVoid", "plateVoid", "plateVoid", "plateVoid", ItemsTC.salisMundus});
 
-        RecipeApi.changeComplexInfusionRecipe(new ResourceLocation(ThaumicAugmentationAPI.MODID, "gauntlet_void"),
-                        new AspectList().add(Aspect.ENERGY, 100).add(Aspect.ELDRITCH, 150).add(Aspect.VOID, 150),
-                new Object[]{ItemsTC.fabric, "plateVoid", "plateVoid", "plateVoid", "plateVoid", ItemsTC.salisMundus});
+            RecipeApi.changeComplexInfusionRecipe(new ResourceLocation("thaumicaugmentation", "boots_void"),
+                    new AspectList().add(Aspect.VOID, 50).add(Aspect.ELDRITCH, 100).add(Aspect.MOTION, 300).add(Aspect.FLIGHT, 150),
+                    new Object[]{ItemsTC.fabric, ItemsTC.fabric, "plateVoid", "plateVoid", "feather", ItemsTC.primordialPearl, "quicksilver"});
 
-        RecipeApi.changeComplexInfusionRecipe(new ResourceLocation(ThaumicAugmentationAPI.MODID, "boots_void"),
-                        new AspectList().add(Aspect.VOID, 50).add(Aspect.ELDRITCH, 100).add(Aspect.MOTION, 300).add(Aspect.FLIGHT, 150),
-                new Object[]{ItemsTC.fabric, ItemsTC.fabric, "plateVoid", "plateVoid", "feather", ItemsTC.primordialPearl, "quicksilver"});
+            RecipeApi.changeComplexInfusionRecipe(new ResourceLocation("thaumicaugmentation", "primal_cutter"), new AspectList().add(Aspect.EARTH, 150).add(
+                            Aspect.TOOL, 100).add(Aspect.MAGIC, 100).add(Aspect.VOID, 100).add(Aspect.AVERSION, 150).add(
+                            Aspect.ELDRITCH, 100).add(Aspect.DESIRE, 100),
+                    new Object[]{ItemsTC.voidAxe, ItemsTC.voidSword, ItemsTC.elementalAxe, ItemsTC.elementalSword});
 
-        RecipeApi.changeComplexInfusionRecipe(new ResourceLocation(ThaumicAugmentationAPI.MODID, "primal_cutter"), new AspectList().add(Aspect.EARTH, 150).add(
-                        Aspect.TOOL, 100).add(Aspect.MAGIC, 100).add(Aspect.VOID, 100).add(Aspect.AVERSION, 150).add(
-                        Aspect.ELDRITCH, 100).add(Aspect.DESIRE, 100),
-                new Object[]{ItemsTC.voidAxe, ItemsTC.voidSword, ItemsTC.elementalAxe, ItemsTC.elementalSword});
-
-        RecipeApi.changeComplexInfusionRecipe(new ResourceLocation(ThaumicAugmentationAPI.MODID, "elytra_harness"), new AspectList().add(Aspect.MOTION, 50).add(Aspect.ENERGY, 50).add(Aspect.FLIGHT, 50),
-                new Object[]{"plateVoid", ItemsTC.visResonator, Items.ELYTRA});
-
+            RecipeApi.changeComplexInfusionRecipe(new ResourceLocation("thaumicaugmentation", "elytra_harness"), new AspectList().add(Aspect.MOTION, 50).add(Aspect.ENERGY, 50).add(Aspect.FLIGHT, 50),
+                    new Object[]{"plateVoid", ItemsTC.visResonator, Items.ELYTRA});
+        }
 
     }
 }

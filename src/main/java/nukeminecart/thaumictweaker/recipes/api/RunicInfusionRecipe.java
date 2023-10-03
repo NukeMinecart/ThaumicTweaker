@@ -1,4 +1,4 @@
-package nukeminecart.thaumictweaker.recipes;
+package nukeminecart.thaumictweaker.recipes.api;
 
 import baubles.api.IBauble;
 import net.minecraft.entity.player.EntityPlayer;

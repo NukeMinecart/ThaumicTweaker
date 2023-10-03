@@ -13,5 +13,5 @@
   "screenshots": [],
   "useDependencyInformation": true,
   "dependencies": ["thaumcraft@[6.1.BETA26,)","thaumicaugmentation@[1.12.2-2.1.11,)","thaumadditions@[12.7.8,)"],
-  "requiredMods": ["thaumcraft","thaumicaugmentation","thaumadditions"]
+  "requiredMods": ["thaumcraft"]
 }]

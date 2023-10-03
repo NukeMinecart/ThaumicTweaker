@@ -5,6 +5,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
+import nukeminecart.thaumictweaker.ModConfig;
 import org.zeith.thaumicadditions.InfoTAR;
 import org.zeith.thaumicadditions.api.AspectUtil;
 import org.zeith.thaumicadditions.init.BlocksTAR;
@@ -31,7 +32,9 @@ public class ThaumicAdditionsRecipes
 
     public static void init()
     {
-        infusion();
+        if(ModConfig.ISTHAUMICADDITIONS) {
+            infusion();
+        }
     }
 
 

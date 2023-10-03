@@ -2,6 +2,7 @@ package nukeminecart.thaumictweaker.recipes.voidarmor;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import nukeminecart.thaumictweaker.ModConfig;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.InfusionRecipe;
@@ -20,7 +21,7 @@ public class VoidRobeChest extends InfusionRecipe {
                         .add(Aspect.VOID, 70)
                 , new ItemStack(ItemsTC.fortressChest),
                 new ItemStack(ItemsTC.voidChest),
-                new ItemStack(TAItems.THAUMIUM_ROBES_CHESTPLATE),
+                ModConfig.ISTHAUMICAUGMENT ? new ItemStack(TAItems.THAUMIUM_ROBES_CHESTPLATE):new ItemStack(ItemsTC.clothChest),
                 "plateVoid", "plateVoid", "plateVoid", "plateVoid",
                 new ItemStack(ItemsTC.salisMundus),
                 new ItemStack(ItemsTC.fabric));
