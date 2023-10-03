@@ -10,5 +10,8 @@ Features
 Requirements 
 ------
 * Thaumcraft
+
+Optional 
+------
 * Thaumic Augmentation
 * Thaumic Additions
