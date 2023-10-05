@@ -23,9 +23,6 @@ public final class Registrar {
             //ArcaneRecipies.initializeArcaneRecipes();
             InfusionRecipes.initializeInfusionRecipes();
             AlchemyRecipes.initializeAlchemyRecipes();
-            if(ModConfig.ISTHAUMICADDITIONS) {
-                ThaumicAdditionsRecipes.init();
-            }
 
         }
 
