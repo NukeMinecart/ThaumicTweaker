@@ -7,8 +7,11 @@ Features
 * Changes for some Thaumic Augmentation recipes
 * Changes for some Thaumic Additions recipes
 
-Requirements 
+Mod Requirements 
 ------
 * Thaumcraft
+
+Optional Mods
+------
 * Thaumic Augmentation
 * Thaumic Additions
