@@ -33,7 +33,7 @@ public class ThaumicAdditionsRecipes
     public static void init()
     {
         if(ModConfig.ISTHAUMICADDITIONS) {
-            infusion();
+            //infusion();
         }
     }
 
