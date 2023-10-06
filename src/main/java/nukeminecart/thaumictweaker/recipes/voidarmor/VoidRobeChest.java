@@ -7,7 +7,6 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.items.ItemsTC;
-import thecodex6824.thaumicaugmentation.api.TAItems;
 
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class VoidRobeChest extends InfusionRecipe {
                         .add(Aspect.VOID, 70)
                 , new ItemStack(ItemsTC.fortressChest),
                 new ItemStack(ItemsTC.voidChest),
-                ModConfig.ISTHAUMICAUGMENT ? new ItemStack(TAItems.THAUMIUM_ROBES_CHESTPLATE):new ItemStack(ItemsTC.clothChest),
+                ModConfig.ISTHAUMICAUGMENT ? new ItemStack(thecodex6824.thaumicaugmentation.api.TAItems.THAUMIUM_ROBES_CHESTPLATE):new ItemStack(ItemsTC.clothChest),
                 "plateVoid", "plateVoid", "plateVoid", "plateVoid",
                 new ItemStack(ItemsTC.salisMundus),
                 new ItemStack(ItemsTC.fabric));

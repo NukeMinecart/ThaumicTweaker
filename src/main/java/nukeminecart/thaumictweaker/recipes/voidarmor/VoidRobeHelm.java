@@ -7,7 +7,6 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.items.ItemsTC;
-import thecodex6824.thaumicaugmentation.api.TAItems;
 
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class VoidRobeHelm extends InfusionRecipe {
                         .add(Aspect.VOID, 50)
                     , new ItemStack(ItemsTC.fortressHelm),
                 new ItemStack(ItemsTC.voidHelm),
-                ModConfig.ISTHAUMICAUGMENT ? new ItemStack(TAItems.THAUMIUM_ROBES_HOOD):new ItemStack(ItemsTC.goggles, 1, 32767),
+                ModConfig.ISTHAUMICAUGMENT ? new ItemStack(thecodex6824.thaumicaugmentation.api.TAItems.THAUMIUM_ROBES_HOOD):new ItemStack(ItemsTC.goggles, 1, 32767),
                 "plateVoid", "plateVoid",
                 new ItemStack(ItemsTC.fabric),
                 new ItemStack(ItemsTC.fabric),

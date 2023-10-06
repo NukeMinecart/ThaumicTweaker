@@ -7,7 +7,6 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.items.ItemsTC;
-import thecodex6824.thaumicaugmentation.api.TAItems;
 
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class VoidRobeLegs extends InfusionRecipe {
                 .add(Aspect.VOID, 60)
                 ,new ItemStack(ItemsTC.fortressLegs),
                 new ItemStack(ItemsTC.voidLegs),
-                ModConfig.ISTHAUMICAUGMENT ? new ItemStack(TAItems.THAUMIUM_ROBES_LEGGINGS):new ItemStack(ItemsTC.clothLegs),
+                ModConfig.ISTHAUMICAUGMENT ? new ItemStack(thecodex6824.thaumicaugmentation.api.TAItems.THAUMIUM_ROBES_LEGGINGS):new ItemStack(ItemsTC.clothLegs),
                 "plateVoid", "plateVoid", "plateVoid",
                 new ItemStack(ItemsTC.salisMundus),
                 new ItemStack(ItemsTC.fabric));
