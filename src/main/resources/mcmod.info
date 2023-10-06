@@ -3,7 +3,7 @@
   "modid": "thaumictweaker",
   "name": "Thaumic Tweaker",
   "description": "A Thaumcraft addon that changes the recipes to be more balanced and adds a few new recipe items",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "mcversion": "1.12.2",
   "url": "",
   "updateUrl": "",
