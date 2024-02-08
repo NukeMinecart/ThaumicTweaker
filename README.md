@@ -6,6 +6,7 @@ Features
 * Changes for most Thaumcraft recipes
 * Changes for some Thaumic Augmentation recipes
 * Changes for some Thaumic Additions recipes
+View full changelist on [Curseforge]([url](https://www.curseforge.com/minecraft/mc-mods/thaumic-tweaker))
 
 Mod Requirements 
 ------
