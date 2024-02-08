@@ -40,7 +40,7 @@ public class ThaumcraftArcaneRecipes {
 
         for (EnumDyeColor d : var3) {
             ItemStack banner = new ItemStack(BlocksTC.banners.get(d));
-            ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation("thaumcraft:Banner" + d.getDyeColorName().toLowerCase()), new ShapedArcaneRecipe(bannerGroup, "BASEINFUSION", 10, null, banner, " WS", "WWS", "WWB", 'W', new ItemStack(Blocks.WOOL, 1, a), 'S', ItemsTT.greatwoodStick, 'B', BlocksTC.plankGreatwood));
+            ThaumcraftApi.addArcaneCraftingRecipe(new ResourceLocation("thaumcraft:Banner" + d.getUnlocalizedName().toLowerCase()), new ShapedArcaneRecipe(bannerGroup, "BASEINFUSION", 10, null, banner, " WS", "WWS", "WWB", 'W', new ItemStack(Blocks.WOOL, 1, a), 'S', ItemsTT.greatwoodStick, 'B', BlocksTC.plankGreatwood));
             ++a;
         }
 
